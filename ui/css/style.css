@@ -740,3 +740,16 @@ input[type=submit],button{display:inline-block;cursor:pointer;}
 .cboxIframe{width:100%;height:100%;display:block;border:0;padding:0;margin:0;}
 #colorbox,#cboxContent,#cboxLoadedContent{box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;}
 #colorbox,#cboxWrapper,#cboxContent,#cboxLoadedContent{max-width:100%;overflow:visible;}
+
+.nobr br { display:none; }
+
+.pf-lb.new .details { padding-bottom:16px; }
+.pf-lb.new .details.left { float:left; }
+.pf-lb.new .details.right { float:right; text-align:right; }
+.pf-lb.new .amenities { clear:both; color:#fff; line-height:16px; border-top:2px solid #fff; border-color:rgba(255,255,255,0.2); padding-top:26px; font-size:0; }
+.pf-lb.new .amenities ul { width:188px; display:inline-block; vertical-align: top;}
+.pf-lb.new .amenities ul:nth-child(2) { margin:0 18px; }
+.pf-lb.new .amenities li { margin:0 0 6px; text-align:center;display:block; vertical-align: top; font-size:13px; }
+/*.pf-lb.new .amenities li:nth-child(3n-2){ float:left; }
+.pf-lb.new .amenities li:nth-child(3n-1){ margin:0 18px 6px; }
+.pf-lb.new .amenities li:nth-child(3n){ float:right; }*/

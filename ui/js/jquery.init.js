@@ -133,6 +133,13 @@ jQuery(function($){
         maxWidth:640,
         onComplete: function(){
             window.location.hash = $(this).closest('.box').data('id');
+
+            $('#cboxLoadedContent .amenities>ul').easyListSplitter({
+                    colNumber: 3,
+                    direction: 'horizontal'
+            });
+
+
             return false;
         }
     });
