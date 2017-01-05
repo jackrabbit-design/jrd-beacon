@@ -22,7 +22,7 @@
                 <? if($fb = get_field('facebook_url','options')){ ?><a target="_blank" href="<?= $fb ?>"><span class="social-facebook"></span></a><? } ?>
                 <? if($yt = get_field('youtube_url','options')) { ?><a target="_blank" href="<?= $yt ?>"><span class="social-youtube" ></span></a><? } ?>
                 <? if($li = get_field('linkedin_url','options')){ ?><a target="_blank" href="<?= $li ?>"><span class="social-linkedin"></span></a><? } ?>
-                <? if($tw = get_field('twitter_url','options')) { ?><a target="_blank" href="<?= $tw ?>"><span class="social-twitter" ></span></a><? } ?>
+                <? if($tw = get_field('twitter_url','options')) { ?><a target="_blank" href="<?= $tw ?>"><span class="social-twitter" ></span></a><? } ?> 
                         </div>
                         <div class="search pull-right">
                             <div class="clearfix">
@@ -42,6 +42,7 @@
                 </div>
 
                 <div class="pull-left dev-wrap">
+                <span class="otherlogos"><img src="<?php bloginfo('url'); ?>/ui/images/Handicap.png" alt="" /><img src="<?php bloginfo('url'); ?>/ui/images/housing.png" alt="" /></span>
                 	<a href="http://www.jumpingjackrabbit.com" title="Website Design by Jackrabbit" target="_blank">Website Design</a> by <a href="http://www.jumpingjackrabbit.com" title="Website Design by Jackrabbit" target="_blank">Jackrabbit</a>
                 </div>
             </div>

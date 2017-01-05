@@ -277,6 +277,8 @@ h2.sub-headline { display: block; font-size: 18px; font-weight: 200; padding-bot
 #footer .dev-wrap a { color: #7d7d7d; }
 #footer .dev-wrap a:hover { color: #f26532; }
 
+.otherlogos img {width:22px;height:auto;display:inline-block;vertical-align:bottom;margin-right:8px}
+
 /*  Core Owl Carousel CSS File */
 /* clearfix */
 .owl-carousel .owl-wrapper:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
