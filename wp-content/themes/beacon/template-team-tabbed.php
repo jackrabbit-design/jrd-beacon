@@ -83,7 +83,7 @@ get_header('new'); the_post(); ?>
                                 <li <?= ($c++ % 4 == 0 ? 'class="four"' : '') ?> style="background-image:url(<?= $img['sizes']['team-thb'] ?>);">
                                     <div>
                                         <h3><?= get_the_title(); ?></h3>
-                                        <h5><? $title = get_field('member_title'); if(strpos($title, ",") == ''){ echo $title; } else { echo substr($title, 0, strpos($title, ",")); } ?></h5>
+                                        <h5><? the_field('member_title'); ?></h5>
                                     </div>
                                 </li>
                         <? endforeach; ?>
