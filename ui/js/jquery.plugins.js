@@ -2,7 +2,9 @@
 /* TABLE OF CONTENTS */
 /* ========================================================================= */
 
-/*  = Cycle2
+/*  
+    = idTabs
+    = Cycle2
     = Cycle2 Swipe
     = InFieldLabels
     = EasyDropDown
@@ -10,6 +12,19 @@
     = Colorbox
     = Easy List Splitter
 */
+
+/* idTabs ~ Sean Catchpole - Version 2.2 - MIT/GPL */
+(function(){var dep={"jQuery":"http://code.jquery.com/jquery-latest.min.js"};var init=function(){(function($){$.fn.idTabs=function(){var s={};for(var i=0;i<arguments.length;++i){var a=arguments[i];switch(a.constructor){case Object:$.extend(s,a);break;case Boolean:s.change=a;break;case Number:s.start=a;break;case Function:s.click=a;break;case String:if(a.charAt(0)=='.')s.selected=a;else if(a.charAt(0)=='!')s.event=a;else s.start=a;break;}}
+if(typeof s['return']=="function")
+s.change=s['return'];return this.each(function(){$.idTabs(this,s);});}
+$.idTabs=function(tabs,options){var meta=($.metadata)?$(tabs).metadata():{};var s=$.extend({},$.idTabs.settings,meta,options);if(s.selected.charAt(0)=='.')s.selected=s.selected.substr(1);if(s.event.charAt(0)=='!')s.event=s.event.substr(1);if(s.start==null)s.start=-1;var showId=function(){if($(this).is('.'+s.selected))
+return s.change;var id="#"+this.href.split('#')[1];var aList=[];var idList=[];$("a",tabs).each(function(){if(this.href.match(/#/)){aList.push(this);idList.push("#"+this.href.split('#')[1]);}});if(s.click&&!s.click.apply(this,[id,idList,tabs,s]))return s.change;for(i in aList)$(aList[i]).removeClass(s.selected);for(i in idList)$(idList[i]).hide();$(this).addClass(s.selected);$(id).show();return s.change;}
+var list=$("a[href*='#']",tabs).unbind(s.event,showId).bind(s.event,showId);list.each(function(){$("#"+this.href.split('#')[1]).hide();});var test=false;if((test=list.filter('.'+s.selected)).length);else if(typeof s.start=="number"&&(test=list.eq(s.start)).length);else if(typeof s.start=="string"&&(test=list.filter("[href*='#"+s.start+"']")).length);if(test){test.removeClass(s.selected);test.trigger(s.event);}
+return s;}
+$.idTabs.settings={start:0,change:false,click:null,selected:".selected",event:"!click"};$.idTabs.version="2.2";$(function(){$(".idTabs").idTabs();});})(jQuery);}
+var check=function(o,s){s=s.split('.');while(o&&s.length)o=o[s.shift()];return o;}
+var head=document.getElementsByTagName("head")[0];var add=function(url){var s=document.createElement("script");s.type="text/javascript";s.src=url;head.appendChild(s);}
+var s=document.getElementsByTagName('script');var src=s[s.length-1].src;var ok=true;for(d in dep){if(check(this,d))continue;ok=false;add(dep[d]);}if(ok)return init();add(src);})();
 
 
 /* ========================================================================= */
@@ -190,3 +205,4 @@ responsive:!0,responsiveRefreshRate:200,responsiveBaseWidth:g,baseClass:"owl-car
 	});
  */
 var j=1;!function(t){t.fn.easyListSplitter=function(s){var l={colNumber:2,direction:"vertical"};this.each(function(){var n=(t(this),t.extend(l,s)),e=t(this).children("li").size(),a=Math.ceil(e/n.colNumber),r=t(this).attr("class");for(i=1;i<=n.colNumber;i++)1==i?t(this).addClass("listCol1").wrap('<div class="listContainer'+j+'"></div>'):t(this).is("ul")?t(this).parents(".listContainer"+j).append('<ul class="listCol'+i+'"></ul>'):t(this).parents(".listContainer"+j).append('<ol class="listCol'+i+'"></ol>'),t(".listContainer"+j+" > ul,.listContainer"+j+" > ol").addClass(r);var o=0,h=1,c=0;"vertical"==n.direction?(t(this).children("li").each(function(){o+=1,o>a*(n.colNumber-1)?t(this).parents(".listContainer"+j).find(".listCol"+n.colNumber).append(this):a*h>=o?t(this).parents(".listContainer"+j).find(".listCol"+h).append(this):(t(this).parents(".listContainer"+j).find(".listCol"+(h+1)).append(this),h+=1)}),t(".listContainer"+j).find("ol,ul").each(function(){0==t(this).children().size()&&t(this).remove()})):t(this).children("li").each(function(){c+=1,c<=n.colNumber?t(this).parents(".listContainer"+j).find(".listCol"+c).append(this):(c=1,t(this).parents(".listContainer"+j).find(".listCol"+c).append(this))}),t(".listContainer"+j).find("ol:last,ul:last").addClass("last"),j+=1})}}(jQuery);
+

@@ -1,4 +1,4 @@
-<? /* Template Name: Team */
+<? /* Template Name: Team Tabbed 2017 */
 get_header('new'); the_post(); ?>
 
     <div id="title">
@@ -17,7 +17,19 @@ get_header('new'); the_post(); ?>
     <div class="wrap">
         <article id="article" class="full">
             <? the_content(); ?>
-            
+        </article>
+    </div>
+    <div id="team-area">
+    	<div class="team-tabs">
+	    	<ul>
+		    	<li><a href="#leadership">Partners</a></li>
+		    	<li><a href="#senior-exec">Senior Executive Team</a></li>
+	    	</ul>
+    	</div>
+    	
+    	<div class="wrap">
+    		<div id="leadership">
+    	
             <?
             $wp_query->query('post_type=leadership-team&posts_per_page=-1&orderby=menu_order&order=ASC');
             $team = $wp_query->posts;
@@ -54,7 +66,31 @@ get_header('new'); the_post(); ?>
                     </ul>
                 </div>
             <? endif; ?>
-        </article>
+    		</div>
+    		<div id="senior-exec">
+            
+            
+            <?
+            $wp_query->query('post_type=senior-exec-team&posts_per_page=-1&orderby=menu_order&order=ASC');
+            $team = $wp_query->posts;
+            ?>
+                <div class="team">
+                    <ul>
+                        <? foreach($team as $post):
+                                setup_postdata($post);
+                                $img = get_field('square_image'); ?>
+                                <li <?= ($c++ % 4 == 0 ? 'class="four"' : '') ?> style="background-image:url(<?= $img['sizes']['team-thb'] ?>);">
+                                    <div>
+                                        <h3><?= get_the_title(); ?></h3>
+                                        <h5><? $title = get_field('member_title'); echo substr($title, 0, strpos($title, ",")) ?></h5>
+                                        <a href="<?= get_permalink() ?>">Read Bio</a>
+                                    </div>
+                                </li>
+                        <? endforeach; ?>
+                    </ul>
+                </div>
+    		</div>
+    	</div>
     </div>
 
 <? get_footer('new'); ?>

@@ -4,6 +4,8 @@
 
 jQuery(function($){
 
+	$("#team-area .team-tabs ul").idTabs(); 
+
     $('#home-banner .close').click(function(){
         $('.shade').toggleClass('x').slideToggle(150);
     });
