@@ -55,7 +55,7 @@ get_header('new'); the_post(); ?>
                                 <li <?= ($c++ % 4 == 0 ? 'class="four"' : '') ?> style="background-image:url(<?= $img['sizes']['team-thb'] ?>);">
                                     <div>
                                         <h3><?= get_the_title(); ?></h3>
-                                        <h5><? $title = get_field('member_title'); echo substr($title, 0, strpos($title, ",")) ?></h5>
+                                        <h5><? $title = get_field('member_title'); if(strpos($title, ",") == ''){ echo $title; } else { echo substr($title, 0, strpos($title, ",")); } ?></h5>
                                         <a href="<?= get_permalink() ?>">Read Bio</a>
                                     </div>
                                 </li>
@@ -71,7 +71,8 @@ get_header('new'); the_post(); ?>
             
             
             <?
-            $wp_query->query('post_type=senior-exec-team&posts_per_page=-1&orderby=menu_order&order=ASC');
+             $c = 1;
+             $wp_query->query('post_type=senior-exec-team&posts_per_page=-1&orderby=menu_order&order=ASC');
             $team = $wp_query->posts;
             ?>
                 <div class="team">
@@ -82,8 +83,7 @@ get_header('new'); the_post(); ?>
                                 <li <?= ($c++ % 4 == 0 ? 'class="four"' : '') ?> style="background-image:url(<?= $img['sizes']['team-thb'] ?>);">
                                     <div>
                                         <h3><?= get_the_title(); ?></h3>
-                                        <h5><? $title = get_field('member_title'); echo substr($title, 0, strpos($title, ",")) ?></h5>
-                                        <a href="<?= get_permalink() ?>">Read Bio</a>
+                                        <h5><? $title = get_field('member_title'); if(strpos($title, ",") == ''){ echo $title; } else { echo substr($title, 0, strpos($title, ",")); } ?></h5>
                                     </div>
                                 </li>
                         <? endforeach; ?>
