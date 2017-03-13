@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <? if (is_front_page()) { ?><title><? bloginfo('name'); ?> | <? bloginfo('description'); ?></title>
     <? } else { ?><title><? wp_title(''); ?> | <? bloginfo('name'); ?></title><? }; ?>
-	<link type="text/css" rel="stylesheet" media="all" href="<? bloginfo('url'); ?>/ui/css/style.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="<? bloginfo('url'); ?>/ui/css/style.css?v=0" />
 	<link type="text/css" rel="stylesheet" media="all" href="<? bloginfo('url'); ?>/ui/css/media.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="<? bloginfo('url'); ?>/ui/css/style-new.css" />
     <link type="text/plain" rel="author" href="<? bloginfo('url') ?>/authors.txt" />

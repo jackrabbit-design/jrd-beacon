@@ -37,12 +37,12 @@ get_header('new'); the_post(); ?>
             $alt = get_field('alternate_images');
             shuffle($alt);
             $alt1[] = $alt[0];
-            $alt2[] = $alt[1];
-            $alt3[] = $alt[2];
+            // $alt2[] = $alt[1];
+            // $alt3[] = $alt[2];
             
-            array_splice($team, 1, 0, $alt1);
-            array_splice($team, 6, 0, $alt2);
-            array_splice($team, 8, 0, $alt3);
+            array_splice($team, 4, 0, $alt1);
+            // array_splice($team, 6, 0, $alt2);
+            // array_splice($team, 8, 0, $alt3);
             ?>
 
             <? if($team): $c = 1; ?>
@@ -52,7 +52,7 @@ get_header('new'); the_post(); ?>
                             <? if($post->post_type == 'leadership-team'){
                                 setup_postdata($post);
                                 $img = get_field('square_image'); ?>
-                                <li <?= ($c++ % 4 == 0 ? 'class="four"' : '') ?> style="background-image:url(<?= $img['sizes']['team-thb'] ?>);">
+                                <li <?= ($c++ % 3 == 0 ? 'class="three"' : '') ?> style="background-image:url(<?= $img['sizes']['team-thb'] ?>);">
                                     <div>
                                         <h3><?= get_the_title(); ?></h3>
                                         <h5><? $title = get_field('member_title'); if(strpos($title, ",") == ''){ echo $title; } else { echo substr($title, 0, strpos($title, ",")); } ?></h5>
@@ -60,7 +60,7 @@ get_header('new'); the_post(); ?>
                                     </div>
                                 </li>
                             <? }else{
-                                echo '<li class="alt" ' . ($c++ % 4 == 0 ? 'class="four"' : '') . ' style="box-shadow:inset 0px 0px 70px rgba(0,0,0,0.11); background-image:url(' . $post['sizes']['team-thb'] . ');"></li>';
+                                echo '<li class="alt" ' . ($c++ % 3 == 0 ? 'class="three"' : '') . ' style="box-shadow:inset 0px 0px 70px rgba(0,0,0,0.11); background-image:url(' . $post['sizes']['team-thb'] . ');"></li>';
                             } ?>
                         <? endforeach; ?>
                     </ul>
@@ -80,7 +80,7 @@ get_header('new'); the_post(); ?>
                         <? foreach($team as $post):
                                 setup_postdata($post);
                                 $img = get_field('square_image'); ?>
-                                <li <?= ($c++ % 4 == 0 ? 'class="four"' : '') ?> style="background-image:url(<?= $img['sizes']['team-thb'] ?>);">
+                                <li <?= ($c++ % 3 == 0 ? 'class="three"' : '') ?> style="background-image:url(<?= $img['sizes']['team-thb'] ?>);">
                                     <div>
                                         <h3><?= get_the_title(); ?></h3>
                                         <h5><? the_field('member_title'); ?></h5>
