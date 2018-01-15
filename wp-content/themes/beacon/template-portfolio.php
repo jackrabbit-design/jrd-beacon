@@ -66,7 +66,7 @@ get_header('new'); the_post(); ?>
                             </div>
                             <div style="display:none;">
 
-                                <?php if(is_user_logged_in()){ // NEW ?>
+                                <?php // if(is_user_logged_in()){ // NEW ?>
 
                                     <div class="pf-lb new" id="prop<?= $c++; ?>">
                                         <h2><?php the_title(); ?></h2>
@@ -86,7 +86,7 @@ get_header('new'); the_post(); ?>
                                         <img src="<?= $img['sizes']['pf-full'] ?>" />
                                     </div>
 
-                                <?php }else{ // OLD ?>
+                                <?php /* }else{ // OLD ?>
 
                                     <div class="pf-lb" id="prop<?= $c++; ?>">
                                         <h2><?php the_title(); ?></h2>
@@ -102,7 +102,7 @@ get_header('new'); the_post(); ?>
                                         <?php the_field('description') ?>
                                     </div>
 
-                                <?php } ?>
+                                <?php } */ ?>
                             </div>
                         </div>
                     <?php endwhile; ?>
